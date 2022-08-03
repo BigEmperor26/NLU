@@ -78,20 +78,40 @@ SNIPS dataset is made of entries as such
 ## Models
 
 ### Baseline LSTM
-
 The first model to be evaluated is the model from LAB 10 of the course. It consists in a simple LSTM architecture, with two linear fully connected layers, one for each task.
 
-### Improved simple model
+Results:
 
+![](Lab%2010%20Arc.JPG)
+
+### BiLSTM
 Some easy improvements to the models are:
 - Apply dropout
 - Increase the size of embeddings
-- Increase size of hidden layers
-- Use bidirectional LSTM or GRU
-- Usi multi layered LSTM or GRU
-- Apply random weightings for joint loss instead of simple sum
+- Increase size of hidden units
+- Use bidirectional LSTM
+- Usi multi layered LSTM
+- Apply better early stopping, using the joint loss as criteria for stopping
 
-These improvements do not change drastically the architecture, but allow to get a few points more. Further tuning of the hyperparameters could increase the score. 
+![](BiLSTM%20Arc.JPG)
+
+These improvements do not change drastically the architecture. Rather, they are small tweaks that allow to get a few points more. More precise tuning of the hyperparameters could further increase the score.
+
+### BiLSTM RWL
+This model is the same as BiLSTM,  but with a key improvement
+
+- Apply random weightings for joint loss instead of simple sum of the two single losses. 
+
+According to this paper, the randomly chosing the weights is better, and it helps to improve perfomances, as sometimes the loss on one task can lag behind the other. 
+
+### BiLSTM RWL + FL
+
+This model is the same as BiLSTM with RWL,  but with two improvements
+
+- Apply random weightings for joint loss instead of simple sum, as before
+- Apply focal loss
+
+Focal Loss is a type of loss that focuses more on hard examples. This should help on ATIS in particular, as it is a very small and unbalanced dataset
 
 ### BERT
 
@@ -99,16 +119,3 @@ Bidirectional Encoder Representations from Transformers (BERT) allow to encode s
 
 - Use pre-trained BERT to extract embeddings and train a simple MLP
 - Use pre-trained BERT and fine tune for the tasks
-
-both use:
-- dropout
-- random weightings
-
-### AlBERT
-
-AlBERT is a model based on BERT, but faster and better optimized for downstream tasks
-
-- Use pre-trained AlBERT and fine tune for the tasks
-
-- dropout
-- random weightings

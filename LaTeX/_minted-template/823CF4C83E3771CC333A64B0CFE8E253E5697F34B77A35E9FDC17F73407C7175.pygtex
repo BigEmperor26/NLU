@@ -1,0 +1,10 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{+w}{		}\PYG{p}{[}
+\PYG{+w}{			}\PYG{p}{\PYGZob{}}
+\PYG{+w}{				}\PYG{l+s+s2}{\PYGZdq{}utterance\PYGZdq{}}\PYG{o}{:}\PYG{+w}{ }\PYG{l+s+s2}{\PYGZdq{}find movie times\PYGZdq{}}\PYG{p}{,}
+\PYG{+w}{				}\PYG{l+s+s2}{\PYGZdq{}slots\PYGZdq{}}\PYG{o}{:}\PYG{+w}{ }\PYG{l+s+s2}{\PYGZdq{}O B\PYGZhy{}object\PYGZus{}type}
+\PYG{l+s+s2}{							I\PYGZhy{}object\PYGZus{}type\PYGZdq{}}\PYG{p}{,}
+\PYG{+w}{				}\PYG{l+s+s2}{\PYGZdq{}intent\PYGZdq{}}\PYG{o}{:}\PYG{+w}{ }\PYG{l+s+s2}{\PYGZdq{}SearchScreeningEvent\PYGZdq{}}
+\PYG{+w}{			}\PYG{p}{\PYGZcb{},...}
+\PYG{+w}{		}\PYG{p}{]}
+\end{Verbatim}
