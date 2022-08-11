@@ -89,7 +89,6 @@ Results:
  | 92.10 |93.14| 94.37|96.79| 80.36|95.19|
 
 
-
 ![](assets/baseline.svg)
 
 ### BiLSTM
@@ -109,17 +108,22 @@ Plus:
 - Randomly Weighted Loss
 - Focal Loss
 
-However it uses a pseudo randomly weighting, with the higher weight applied to the higher loss. This should help improve the results, as higher losses will be weighted more and therefore the model should learn better
+However it uses a pseudo randomly weighting, with the higher weight applied to the higher loss. This should help improve the results, as higher losses will be weighted more and therefore the model should learn better.
+
+These improvements do not change drastically the architecture. Rather, they are small tweaks that allow to get a few points more. More precise tuning of the hyperparameters could further increase the score.
 
 Results:
+
 
  | ATIS |      |Balanced ATIS|      | SNIPS |     |
  |-----|----- |------------ |----- |------ |-----|
  |Slot F1|Intent Accuracy| Slot F1|Intent Accuracy| Slot F1|Intent Accuracy|
  | 94.70 |95.30| 97.33|97.20| 88.10|96.29|
+
+
 ![](assets/BiLSTM.svg)
 
-These improvements do not change drastically the architecture. Rather, they are small tweaks that allow to get a few points more. More precise tuning of the hyperparameters could further increase the score.
+
 # BERT
 
 Bidirectional Encoder Representations from Transformers (BERT) allow to encode sentences better than Recurrent models and at the same time being faster. 
@@ -132,4 +136,5 @@ Results:
  |Slot F1|Intent Accuracy| Slot F1|Intent Accuracy| Slot F1|Intent Accuracy|
  | 86.67 |94.73| 89.84|96.86| 69.20|96.42|
 
-![](assets/BERT.svg)
+
+![](assets/Bert.svg)
