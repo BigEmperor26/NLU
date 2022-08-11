@@ -82,40 +82,54 @@ The first model to be evaluated is the model from LAB 10 of the course. It consi
 
 Results:
 
-![](Lab%2010%20Arc.JPG)
+
+ | ATIS |      |Balanced ATIS|      | SNIPS |     |
+ |-----|----- |------------ |----- |------ |-----|
+ |Slot F1|Intent Accuracy| Slot F1|Intent Accuracy| Slot F1|Intent Accuracy|
+ | 92.10 |93.14| 94.37|96.79| 80.36|95.19|
+
+
+
+![](assets/baseline.svg)
 
 ### BiLSTM
-Some easy improvements to the models are:
-- Apply dropout
-- Increase the size of embeddings
-- Increase size of hidden units
-- Use bidirectional LSTM
-- Usi multi layered LSTM
-- Apply better early stopping, using the joint loss as criteria for stopping
+A slighlty improved LSTM over the baseline model:
 
-![](BiLSTM%20Arc.JPG)
+- bidirectional LSTM
+- increased size of embedding
+- increased size of hidden
+- increased number of layers for the LSTM
+- layer normalization
+- dropout
+- better early stopping criteria, on both losses instead of slot filling f1 score
+- increase number of epochs ( which is not a problem due to early stopping )
+
+Plus:
+
+- Randomly Weighted Loss
+- Focal Loss
+
+However it uses a pseudo randomly weighting, with the higher weight applied to the higher loss. This should help improve the results, as higher losses will be weighted more and therefore the model should learn better
+
+Results:
+
+ | ATIS |      |Balanced ATIS|      | SNIPS |     |
+ |-----|----- |------------ |----- |------ |-----|
+ |Slot F1|Intent Accuracy| Slot F1|Intent Accuracy| Slot F1|Intent Accuracy|
+ | 94.70 |95.30| 97.33|97.20| 88.10|96.29|
+![](assets/BiLSTM.svg)
 
 These improvements do not change drastically the architecture. Rather, they are small tweaks that allow to get a few points more. More precise tuning of the hyperparameters could further increase the score.
-
-### BiLSTM RWL
-This model is the same as BiLSTM,  but with a key improvement
-
-- Apply random weightings for joint loss instead of simple sum of the two single losses. 
-
-According to this paper, the randomly chosing the weights is better, and it helps to improve perfomances, as sometimes the loss on one task can lag behind the other. 
-
-### BiLSTM RWL + FL
-
-This model is the same as BiLSTM with RWL,  but with two improvements
-
-- Apply random weightings for joint loss instead of simple sum, as before
-- Apply focal loss
-
-Focal Loss is a type of loss that focuses more on hard examples. This should help on ATIS in particular, as it is a very small and unbalanced dataset
-
-### BERT
+# BERT
 
 Bidirectional Encoder Representations from Transformers (BERT) allow to encode sentences better than Recurrent models and at the same time being faster. 
+I use a pre-trained BERT to extract embeddings and train a simple network to perfom the task
 
-- Use pre-trained BERT to extract embeddings and train a simple MLP
-- Use pre-trained BERT and fine tune for the tasks
+Results: 
+
+ | ATIS |      |Balanced ATIS|      | SNIPS |     |
+ |-----|----- |------------ |----- |------ |-----|
+ |Slot F1|Intent Accuracy| Slot F1|Intent Accuracy| Slot F1|Intent Accuracy|
+ | 86.67 |94.73| 89.84|96.86| 69.20|96.42|
+
+![](assets/BERT.svg)
