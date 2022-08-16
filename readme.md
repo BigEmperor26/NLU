@@ -86,11 +86,19 @@ Results:
  | ATIS |      |Balanced ATIS|      | SNIPS |     |
  |-----|----- |------------ |----- |------ |-----|
  |Slot F1|Intent Accuracy| Slot F1|Intent Accuracy| Slot F1|Intent Accuracy|
- | 92.10 |93.14| 94.37|96.79| 80.36|95.19|
+ | 92.42 |93.73| 94.33|96.97| 80.45|96.10|
 
 
 ![](assets/baseline.svg)
-
+<!-- <img src="drawing.jpg" alt="drawing" width="200"/> -->
+![<width="25"/>](assets/CM_baseline_intent_ATIS.png)
+![](assets/CM_baseline_slot_ATIS.png)
+![](assets/CM_baseline_intent_SNIPS.png)
+![](assets/CM_baseline_slot_SNIPS.png)
+![](assets/baseline_intent_embeddings_ATIS.png)
+![](assets/baseline_slot_embeddings_ATIS.png)
+![](assets/baseline_intent_embeddings_SNIPS.png)
+![](assets/baseline_slot_embeddings_SNIPS.png)
 ### BiLSTM
 A slighlty improved LSTM over the baseline model:
 
@@ -118,13 +126,21 @@ Results:
  | ATIS |      |Balanced ATIS|      | SNIPS |     |
  |-----|----- |------------ |----- |------ |-----|
  |Slot F1|Intent Accuracy| Slot F1|Intent Accuracy| Slot F1|Intent Accuracy|
- | 94.70 |95.30| 97.33|97.20| 88.10|96.29|
+ | 94.75 |95.30| 97.48|97.09| 88.02|96.80|
 
 
 ![](assets/BiLSTM.svg)
 
 
-# BERT
+![](assets/CM_BiLSTM_intent_ATIS.png)
+![](assets/CM_BiLSTM_slot_ATIS.png)
+![](assets/CM_BiLSTM_intent_SNIPS.png)
+![](assets/CM_BiLSTM_slot_SNIPS.png)
+![](assets/BiLSTM_intent_embeddings_ATIS.png)
+![](assets/BiLSTM_slot_embeddings_ATIS.png)
+![](assets/BiLSTM_intent_embeddings_SNIPS.png)
+![](assets/BiLSTM_slot_embeddings_SNIPS.png)
+### BERT
 
 Bidirectional Encoder Representations from Transformers (BERT) allow to encode sentences better than Recurrent models and at the same time being faster. 
 I use a pre-trained BERT to extract embeddings and train a simple network to perfom the task
