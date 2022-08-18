@@ -82,23 +82,26 @@ The first model to be evaluated is the model from LAB 10 of the course. It consi
 
 Results:
 
-
  | ATIS |      |Balanced ATIS|      | SNIPS |     |
  |-----|----- |------------ |----- |------ |-----|
  |Slot F1|Intent Accuracy| Slot F1|Intent Accuracy| Slot F1|Intent Accuracy|
- | 92.42 |93.73| 94.33|96.97| 80.45|96.10|
+ | 92.06 |93.34| 94.43|96.71| 80.27|96.05|
 
 
-![](assets/baseline.svg)
+![](assets/images/baseline.svg)
 <!-- <img src="drawing.jpg" alt="drawing" width="200"/> -->
-![<width="25"/>](assets/CM_baseline_intent_ATIS.png)
-![](assets/CM_baseline_slot_ATIS.png)
-![](assets/CM_baseline_intent_SNIPS.png)
-![](assets/CM_baseline_slot_SNIPS.png)
-![](assets/baseline_intent_embeddings_ATIS.png)
-![](assets/baseline_slot_embeddings_ATIS.png)
-![](assets/baseline_intent_embeddings_SNIPS.png)
-![](assets/baseline_slot_embeddings_SNIPS.png)
+<!-- ![<width="25"/>](assets/images/embeddings/CM_baseline_intent_ATIS.png) -->
+<!-- ![](assets/images/embeddings/CM_baseline_slot_ATIS.png) -->
+<!-- ![](assets/images/embeddings/CM_baseline_intent_SNIPS.png) -->
+<!-- ![](assets/images/embeddings/CM_baseline_slot_SNIPS.png) -->
+#### Slot embeddings ATIS
+![](assets/images/embeddings/baseline_slot_embeddings_ATIS.png)
+#### Intent embeddings ATIS
+![](assets/images/embeddings/baseline_intent_embeddings_ATIS.png)
+#### Slot embeddings SNIPS
+![](assets/images/embeddings/baseline_slot_embeddings_SNIPS.png)
+#### Intent embeddings SNIPS
+![](assets/images/embeddings/baseline_intent_embeddings_SNIPS.png)
 ### BiLSTM
 A slighlty improved LSTM over the baseline model:
 
@@ -122,24 +125,26 @@ These improvements do not change drastically the architecture. Rather, they are 
 
 Results:
 
-
  | ATIS |      |Balanced ATIS|      | SNIPS |     |
  |-----|----- |------------ |----- |------ |-----|
  |Slot F1|Intent Accuracy| Slot F1|Intent Accuracy| Slot F1|Intent Accuracy|
- | 94.75 |95.30| 97.48|97.09| 88.02|96.80|
+ | 94.59 |94.89| 97.52|97.24| 87.06|96.14|
+
+![](assets/images/BiLSTM.svg)
 
 
-![](assets/BiLSTM.svg)
-
-
-![](assets/CM_BiLSTM_intent_ATIS.png)
-![](assets/CM_BiLSTM_slot_ATIS.png)
-![](assets/CM_BiLSTM_intent_SNIPS.png)
-![](assets/CM_BiLSTM_slot_SNIPS.png)
-![](assets/BiLSTM_intent_embeddings_ATIS.png)
-![](assets/BiLSTM_slot_embeddings_ATIS.png)
-![](assets/BiLSTM_intent_embeddings_SNIPS.png)
-![](assets/BiLSTM_slot_embeddings_SNIPS.png)
+<!-- ![](assets/images/embeddings/CM_BiLSTM_intent_ATIS.png) -->
+<!-- ![](assets/images/embeddings/CM_BiLSTM_slot_ATIS.png) -->
+<!-- ![](assets/images/embeddings/CM_BiLSTM_intent_SNIPS.png) -->
+<!-- ![](assets/images/embeddings/CM_BiLSTM_slot_SNIPS.png) -->
+#### Slot embeddings ATIS
+![](assets/images/embeddings/BiLSTM_slot_embeddings_ATIS.png)
+#### Intent embeddings ATIS
+![](assets/images/embeddings/BiLSTM_intent_embeddings_ATIS.png)
+#### Slot embeddings SNIPS
+![](assets/images/embeddings/BiLSTM_slot_embeddings_SNIPS.png)
+#### Intent embeddings SNIPS
+![](assets/images/embeddings/BiLSTM_intent_embeddings_SNIPS.png)
 ### BERT
 
 Bidirectional Encoder Representations from Transformers (BERT) allow to encode sentences better than Recurrent models and at the same time being faster. 
@@ -150,7 +155,15 @@ Results:
  | ATIS |      |Balanced ATIS|      | SNIPS |     |
  |-----|----- |------------ |----- |------ |-----|
  |Slot F1|Intent Accuracy| Slot F1|Intent Accuracy| Slot F1|Intent Accuracy|
- | 86.67 |94.73| 89.84|96.86| 69.20|96.42|
+ | 95.50 |97.31| 98.36|98.43| 94.23|97.71|
 
 
-![](assets/Bert.svg)
+![](assets/images/Bert.svg)
+#### Slot embeddings ATIS
+![](assets/images/embeddings/BERT_slot_embeddings_ATIS.png)
+#### Intent embeddings ATIS
+![](assets/images/embeddings/BERT_intent_embeddings_ATIS.png)
+#### Slot embeddings SNIPS
+![](assets/images/embeddings/BERT_slot_embeddings_SNIPS.png)
+#### Intent embeddings SNIPS
+![](assets/images/embeddings/BERT_intent_embeddings_SNIPS.png)

@@ -8,6 +8,11 @@
 \usepackage{subcaption}
 \usepackage{graphicx}
 \usepackage{tabularray}
+\usepackage[dvipsnames]{xcolor}
+\definecolor{Mypurple}{HTML}{cc66bd}
+\definecolor{Myviolet}{HTML}{8266cc}
+\definecolor{Myblue}{HTML}{1f77b4}
+\definecolor{Myorange}{HTML}{ff983d}
 %\usepackage[showframe]{geometry}% http://ctan.org/pkg/geometry
 %\usepackage{lipsum}% http://ctan.org/pkg/lipsum
 \newcommand*{\addheight}[2][.5ex]{%
@@ -160,7 +165,7 @@ Their results are compared against a simple yet effective baseline model shown i
 \subsection{Baseline}
 \begin{figure}[h!]
 	\centering
-	\includegraphics[width=0.8\linewidth]{../assets/baseline}
+	\includegraphics[width=0.8\linewidth]{../assets/images/baseline.png}
 	\caption{baseline}
 	\label{fig:Baseline}
 \end{figure}
@@ -173,8 +178,8 @@ Their results are compared against a simple yet effective baseline model shown i
 \subsection{BiLSTM}
 \begin{figure}[h!]
 	\centering
-	\includegraphics[width=0.8\linewidth]{../assets/BiLSTM}
-	\caption{BiLSTM}
+	\includegraphics[width=0.8\linewidth]{../assets/images/BiLSTM}
+	\caption{BiLSTM based}
 	\label{fig:bilstm}
 \end{figure}
 
@@ -194,7 +199,7 @@ The model is composed by a BiLSTM as backbone, followed by two heads, one for sl
 \subsection{BERT}
 \begin{figure}[h!]
 	\centering
-	\includegraphics[width=0.8\linewidth]{../assets/BERT}
+	\includegraphics[width=0.8\linewidth]{../assets/images/BERT}
 	\caption{BERT based}
 	\label{fig:bert}
 \end{figure}
@@ -202,7 +207,7 @@ The second model proposed uses a similar architecture, but it replaces the embed
 
 Because BERT is pre-trained on a different corpus, with a different task, it also expects a specific word to id encoding.
 
-BertTokenizer is able parse the input sequence according to BERT needs, adding '[CLS]' and '[SEP]', two special tokens required by BERT. However the tokenizer does also split some tokens in base word and suffix. This creates an inconsistency with the number of slots. Therefore only the base word is considered and suffixes are ignored. Similarly '[CLS]' and '[SEP]' are removed in the slot filling. \\
+BertTokenizer is able parse the input sequence according to BERT needs, adding '[CLS]' and '[SEP]', two special tokens required by BERT. However the tokenizer also splits some tokens in base word and suffix. This creates an inconsistency with the number of slots. Therefore only the base word is considered and suffixes are ignored. Similarly '[CLS]' and '[SEP]' are removed in the slot filling. \\
 
 %\centerline{how many people fit on a 72s airplane}
 %\centerline{[CLS] how many people fit on a 72 \#\#s airplane [SEP]} 
@@ -237,7 +242,7 @@ The architecture is shown in Fig \ref{fig:bert} and it consists of:
 
 Intent classification takes as input the pooler\_output of the BERT backbone, which can be considered as the encoded token '[CLS]'.
 
-Very small learning rates ($1e^{-5}$) were used, with high number of epochs. Using higher learning rates with fewer epochs yielded baffling results. This is probably because backpropagation with larger learning rates completely destroys the pretrained information within the BERT backbone in very few iterations. Small learning rates paired with high epochs allow to find the correct tradeoff between adapting the backbone to the downstream tasks and overfitting.
+Different learning rates for the classification layers and the backbone were used, specifically $e^{-4}$ and $e^{-5}$ respectively. This is to ensure that the model is able to learn the correct mapping for the classification layers and at the same time not lose the information stored in the pretrained backbone. 
 
 
 Both simple architectures are complemented by a few considerations in order to improve performances.
@@ -306,7 +311,7 @@ Confusion matrixes are reported in figures \ref{fig:cm_intent} and \ref{fig:cm_s
 The colors are row normalized to prevent very frequent labels to dominate all the rest. 
 Blank lines are where the models did not make any prediction for that specific label.
 
-\begin{table*}[h]
+\begin{table*}[h!]
 	\centering
 	\begin{adjustbox}{max width=\textwidth}
 		\begin{tabular}{l|ccc}
@@ -314,31 +319,33 @@ Blank lines are where the models did not make any prediction for that specific l
 			Classification & & & \\
 			& ATIS & balanced ATIS & SNIPS \\
 			\cmidrule{1-4}
-			Baseline &  \includegraphics[width=0.3\textwidth]{../assets/CM_baseline_intent_ATIS_labeless} & \includegraphics[width=0.3\textwidth]{../assets/CM_baseline_intent_remix_ATIS_labeless} &\includegraphics[width=0.3\textwidth]{../assets/CM_baseline_intent_SNIPS_labeless} \\
+			Baseline &  \includegraphics[width=0.3\textwidth]{"../assets/images/confusion matrixes/CM_baseline_intent_ATIS_labeless"} & \includegraphics[width=0.3\textwidth]{"../assets/images/confusion matrixes/CM_baseline_intent_remix_ATIS_labeless"} &\includegraphics[width=0.3\textwidth]{"../assets/images/confusion matrixes/CM_baseline_intent_SNIPS_labeless"} \\
 			\cmidrule{1-4}
-			BiLSTM &  \includegraphics[width=0.3\textwidth]{../assets/CM_BiLSTM_intent_ATIS_labeless} & \includegraphics[width=0.3\textwidth]{../assets/CM_BiLSTM_intent_remix_ATIS_labeless} &\includegraphics[width=0.3\textwidth]{../assets/CM_BiLSTM_intent_SNIPS_labeless} \\
+			BiLSTM &  \includegraphics[width=0.3\textwidth]{"../assets/images/confusion matrixes/CM_BiLSTM_intent_ATIS_labeless.png"} & \includegraphics[width=0.3\textwidth]{"../assets/images/confusion matrixes/CM_BiLSTM_slot_remix_ATIS_labeless"}
+			&\includegraphics[width=0.3\textwidth]{"../assets/images/confusion matrixes/CM_BiLSTM_intent_SNIPS_labeless"} \\
 			\cmidrule{1-4}
-			BERT &  \includegraphics[width=0.3\textwidth]{../assets/CM_BERT_intent_ATIS_labeless} & \includegraphics[width=0.3\textwidth]{../assets/CM_BERT_intent_remix_ATIS_labeless} &\includegraphics[width=0.3\textwidth]{../assets/CM_BERT_intent_SNIPS_labeless} \\
-			%	Baseline &  \raisebox{-\totalheight}{\includegraphics[width=0.3\textwidth, height=60mm]{../assets/CM_baseline_intent_ATIS}} & \raisebox{-\totalheight}{\includegraphics[width=0.3\textwidth, height=60mm]{../assets/CM_baseline_intent_remix_ATIS}} & \raisebox{-\totalheight}{\includegraphics[width=0.3\textwidth, height=60mm]{../assets/CM_baseline_intent_SNIPS}}\\
+			BERT &  \includegraphics[width=0.3\textwidth]{"../assets/images/confusion matrixes/CM_BERT_intent_ATIS_labeless"} &2 \includegraphics[width=0.3\textwidth]{"../assets/images/confusion matrixes/CM_BERT_intent_remix_ATIS_labeless"} &\includegraphics[width=0.3\textwidth]{"../assets/images/confusion matrixes/CM_BERT_intent_SNIPS_labeless"} \\
+			%	Baseline &  \raisebox{-\totalheight}{\includegraphics[width=0.3\textwidth, height=60mm]{../assets/images/CM_baseline_intent_ATIS}} & \raisebox{-\totalheight}{\includegraphics[width=0.3\textwidth, height=60mm]{../assets/images/CM_baseline_intent_remix_ATIS}} & \raisebox{-\totalheight}{\includegraphics[width=0.3\textwidth, height=60mm]{../assets/images/CM_baseline_intent_SNIPS}}\\
 		\end{tabular}
 	\end{adjustbox}
 \caption{Confusion matrixes for intent classification}
 \label{fig:cm_intent}
 \end{table*}
-\begin{table*}[h]
+
+\begin{table*}[h!]
 	\centering
 	\begin{adjustbox}{max width=\textwidth}
 		\begin{tabular}{l|ccc}
-			Intent & & & \\
-			Classification & & & \\
+			Slot & & & \\
+			Filling & & & \\
 			& ATIS & balanced ATIS & SNIPS \\
 			\cmidrule{1-4}
-			Baseline &  \includegraphics[width=0.3\textwidth]{../assets/CM_baseline_slot_ATIS_labeless} & \includegraphics[width=0.3\textwidth]{../assets/CM_baseline_slot_remix_ATIS_labeless} &\includegraphics[width=0.3\textwidth]{../assets/CM_baseline_slot_SNIPS_labeless} \\
+			Baseline &  \includegraphics[width=0.3\textwidth]{"../assets/images/confusion matrixes/CM_baseline_slot_ATIS_labeless"} & \includegraphics[width=0.3\textwidth]{"../assets/images/confusion matrixes/CM_baseline_slot_remix_ATIS_labeless"} &\includegraphics[width=0.3\textwidth]{"../assets/images/confusion matrixes/CM_baseline_slot_SNIPS_labeless"} \\
 			\cmidrule{1-4}
-			BiLSTM &  \includegraphics[width=0.3\textwidth]{../assets/CM_BiLSTM_slot_ATIS_labeless} & \includegraphics[width=0.3\textwidth]{../assets/CM_BiLSTM_slot_remix_ATIS_labeless} &\includegraphics[width=0.3\textwidth]{../assets/CM_BiLSTM_slot_SNIPS_labeless} \\
+			BiLSTM &  \includegraphics[width=0.3\textwidth]{"../assets/images/confusion matrixes/CM_BiLSTM_slot_ATIS_labeless"} & \includegraphics[width=0.3\textwidth]{"../assets/images/confusion matrixes/CM_BiLSTM_slot_remix_ATIS_labeless"} &\includegraphics[width=0.3\textwidth]{"../assets/images/confusion matrixes/CM_BiLSTM_slot_SNIPS_labeless"} \\
 			\cmidrule{1-4}
-			BERT &  \includegraphics[width=0.3\textwidth]{../assets/CM_BERT_slot_ATIS_labeless} & \includegraphics[width=0.3\textwidth]{../assets/CM_BERT_slot_remix_ATIS_labeless} &\includegraphics[width=0.3\textwidth]{../assets/CM_BERT_slot_SNIPS_labeless} \\
-			%	Baseline &  \raisebox{-\totalheight}{\includegraphics[width=0.3\textwidth, height=60mm]{../assets/CM_baseline_intent_ATIS}} & \raisebox{-\totalheight}{\includegraphics[width=0.3\textwidth, height=60mm]{../assets/CM_baseline_intent_remix_ATIS}} & \raisebox{-\totalheight}{\includegraphics[width=0.3\textwidth, height=60mm]{../assets/CM_baseline_intent_SNIPS}}\\
+			BERT &  \includegraphics[width=0.3\textwidth]{"../assets/images/confusion matrixes/CM_BERT_slot_ATIS_labeless"} & \includegraphics[width=0.3\textwidth]{"../assets/images/confusion matrixes/CM_BERT_slot_remix_ATIS_labeless"} &\includegraphics[width=0.3\textwidth]{"../assets/images/confusion matrixes/CM_BERT_slot_SNIPS_labeless"} \\
+			%	Baseline &  \raisebox{-\totalheight}{\includegraphics[width=0.3\textwidth, height=60mm]{../assets/images/CM_baseline_intent_ATIS}} & \raisebox{-\totalheight}{\includegraphics[width=0.3\textwidth, height=60mm]{../assets/images/CM_baseline_intent_remix_ATIS}} & \raisebox{-\totalheight}{\includegraphics[width=0.3\textwidth, height=60mm]{../assets/images/CM_baseline_intent_SNIPS}}\\
 		\end{tabular}
 	\end{adjustbox}
 
@@ -357,7 +364,42 @@ Although SNIPS is arguably a better dataset than ATIS, being larger, evenly dist
 On one hand, it is true that on ATIS there are more slot label, with fewer examples, but on the other hard all labels are under the wider scope of airport related requests. On SNIPS the requests cover a wider spectrum. This and the limited vocabulary on ATIS, probably lead to more examples for each token on ATIS than on SNIPS.
 
 
-Although BERT performs as well as BiLSTM and in some cases better for intent classification, it significantly worse on slot filling, being surpassed by the much simpler baseline in all datasets. Because this models it is based on a fine tuning of a pretrained model, in theory this should solve the issue of having a small and biased dataset. These results show that this is not the case. In 'BERT for Joint Intent Classification and Slot Filling' \cite{https://doi.org/10.48550/arxiv.1902.10909} the authors use a similar architecture and are able to perform much better on slot filling. I was unable to replicate the results.
+BERT performs much better than BiLSTM. Because this models it is based on a fine tuning of a pretrained model, this should solve the issue of having a small and biased dataset, fact that is corroborated by the data. 
+
+Looking at the t-distributed stochastic neighbour embeddings (TSNE) in Fig\ref{tab:embeddings} the features extracted by each model, before the classification layers, it is clear that BERT achieve a much higher class separation of the labels leading to better performances. 
+
+\begin{table*}[h!]
+	\centering
+%	\begin{adjustbox}{max width=\textwidth}
+	\resizebox{\textwidth}{!}{%
+		\begin{tabular}{l|cc|cc}
+			&ATIS & & SNIPS & \\
+			& Slot Embeddings & Intent Embeddings & Slot Embeddings& Intent Embeddings \\
+			\cmidrule{1-5}
+			Baseline &  \includegraphics[width=0.2\textwidth]{"../assets/images/embeddings/baseline_slots_embeddings_ATIS_single.png"} &
+			\includegraphics[width=0.2\textwidth]{"../assets/images/embeddings/baseline_intent_embeddings_ATIS_single.png"} &
+			\includegraphics[width=0.2\textwidth]{"../assets/images/embeddings/baseline_slot_embeddings_SNIPS_single.png"} &
+			\includegraphics[width=0.2\textwidth]{"../assets/images/embeddings/baseline_intent_embeddings_SNIPS_single.png"} \\
+			\cmidrule{1-5}
+			BiLSTM &  \includegraphics[width=0.2\textwidth]{"../assets/images/embeddings/BiLSTM_slot_embeddings_ATIS_single.png"} &
+			\includegraphics[width=0.2\textwidth]{"../assets/images/embeddings/BiLSTM_intent_embeddings_ATIS_single.png"} &
+			\includegraphics[width=0.2\textwidth]{"../assets/images/embeddings/BiLSTM_slot_embeddings_SNIPS_single.png"} &
+			\includegraphics[width=0.2\textwidth]{"../assets/images/embeddings/BiLSTM_intent_embeddings_SNIPS_single.png"} \\
+			\cmidrule{1-5}
+			BERT &  \includegraphics[width=0.2\textwidth]{"../assets/images/embeddings/BERT_slot_embeddings_ATIS_single.png"} &
+			\includegraphics[width=0.2\textwidth]{"../assets/images/embeddings/BERT_intent_embeddings_ATIS_single.png"} &
+			\includegraphics[width=0.2\textwidth]{"../assets/images/embeddings/BERT_slot_embeddings_SNIPS_single.png"} &
+			\includegraphics[width=0.2\textwidth]{"../assets/images/embeddings/BERT_intent_embeddings_SNIPS_single.png"} \\
+			\cmidrule{1-5}
+		\end{tabular}
+%	\end{adjustbox}
+	}
+	
+	\caption{TSNE of the features for each model. Notice that the clusters are better separated on BERT than on the other two models. In particular on intent classification, the labels that correspond to \textcolor{Myviolet}{SearchCreativeWork} and \textcolor{Mypurple}{SearchScreeningEvent} are well separated }
+	\label{tab:embeddings}
+\end{table*}
+
+In 'BERT for Joint Intent Classification and Slot Filling' \cite{https://doi.org/10.48550/arxiv.1902.10909} the authors use a similar architecture and are able to perform much better on slot filling., however they are able to achieve slightly more. 
 
 
 \begin{table*}[h!]
@@ -370,9 +412,9 @@ Although BERT performs as well as BiLSTM and in some cases better for intent cla
 			Model: & ATIS & & ATIS balanced & & SNIPS &\\
 					& Slot F1 & Intent Acc 	& Slot F1 & Intent Acc 	& Slot F1 & Intent Acc \\
 			\hline
-			baseline & 92.10\% & 93.14\%& 94.37\%& 96.79\%& 80.36\%& 95.19\% \\
-			1° proposal BiLSTM & 94.70\%& 95.30\%& 97.33\%& 97.20\%& 88.10\% & 96.29\%\\
-			2° proposal BERT& 86.67\%& 94.73\%& 89.84\%& 96.86\%& 69.20\%& 96.42\%\\
+			baseline & 92.06\% & 93.34\%& 94.43\%& 96.71\%& 80.27\%& 96.05\% \\
+			1° proposal BiLSTM & 94.59\%& 94.89\%& 97.52\%& 97.24\%& 87.06\% & 96.14\%\\
+			2° proposal BERT& 95.50\%& 97.31\%& 98.36\%& 98.43\%& 94.23\%& 97.71\%\\
 			Some state of the art & & & & & & \\
 			Joint BERT \cite{https://doi.org/10.48550/arxiv.1902.10909} & 96.1\%& 97.5\%& - & - & 97.0\%& 98.6\%\\
 			Bi-model with decoder\cite{wang-etal-2018-bi} & 98.99\% & 96.89\% & - & - & - & - \\
@@ -391,34 +433,35 @@ Although BERT performs as well as BiLSTM and in some cases better for intent cla
 %    \item \textit{Correct interpretation of errors and analysis}
 %\end{itemize}
 
-Finally, looking at the training losses on BiLSTM in Fig \ref{fig:losses} a final remark.
+Looking at the training losses on BiLSTM in Fig \ref{fig:losses} a final remark.
 \begin{figure}[h!]
 	\centering
 %	\begin{subfigure}[b]{0.3\textwidth}
 %		\centering
-%		\includegraphics[width=\textwidth]{../assets/BiLSTM_joint_loss_ATIS.png}
+%		\includegraphics[width=\textwidth]{../assets/images/BiLSTM_joint_loss_ATIS.png}
 %		%		\caption{This is a tiger.}
 %	\end{subfigure}
-	\begin{subfigure}[b]{0.20\textwidth}
+	\begin{subfigure}[b]{0.22\textwidth}
 		\centering
-		\includegraphics[width=\textwidth]{../assets/BiLSTM_slot_loss_ATIS.png}
-		%		\caption{This is a tiger.}
+		\includegraphics[width=\textwidth]{"../assets/images/losses/BiLSTM Average Slot Loss ATIS.png"}
+				\caption{Slot Loss}
 	\end{subfigure}	
 	\hfill
-	\begin{subfigure}[b]{0.20\textwidth}
+	\begin{subfigure}[b]{0.22\textwidth}
 		\centering
-		\includegraphics[width=\textwidth]{../assets/BiLSTM_intent_loss_ATIS}
-		%		\caption{This is a tiger.}
+		\includegraphics[width=\textwidth]{"../assets/images/losses/BiLSTM Average Intent Loss ATIS.png"}
+				\caption{Intent Loss}
 	\end{subfigure}
- \caption{Training losses on BiLSTM}
+ \caption{Training losses of BiLSTM on ATIS. \textcolor{Myblue}{Train} and \textcolor{Myorange}{Dev} respectively}
  \label{fig:losses}
 \end{figure}
 
 Even using early stopping, the loss on slot filling does increase on the dev set. This is because the training stops only if both dev losses start to increase. I was unable to change the hyperparameters regulating early stopping to remove this issue without compromising results. If this issue is solved, it is very likely possible to increase the slot filling performances further.
 \section{Conclusion}
 
-I presented two models for the joint task of slot filling and intent classification. While neither is able to achieve results comparable to the state of the art, they are not too far, especially for intent classification.
-As future work, it would be possible to explore more complex architectures for both models presented. Furthermore, on BERT, one key aspect that remains to be explained is understanding the reasons behind the significant worse results on slot filling than intent classification.
+I presented two models for the joint task of slot filling and intent classification. While neither are able to achieve results comparable to the state of the art, both are a marked improvement over a simple baseline model and BERT finetuning is not far from the state of the art
+
+As future work, it would be possible to explore more complex architectures for both models presented. 
 
 \bibliographystyle{IEEEtran}
 

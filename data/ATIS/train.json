@@ -1,5 +1,4 @@
-[
-    {
+[{
         "utterance": "i want to fly from boston at 838 am and arrive in denver at 1110 in the morning",
         "slots": "O O O O O B-fromloc.city_name O B-depart_time.time I-depart_time.time O O O B-toloc.city_name O B-arrive_time.time O O B-arrive_time.period_of_day",
         "intent": "flight"
