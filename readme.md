@@ -95,7 +95,7 @@ Results:
 <!-- ![](assets/images/embeddings/CM_baseline_intent_SNIPS.png) -->
 <!-- ![](assets/images/embeddings/CM_baseline_slot_SNIPS.png) -->
 #### Slot embeddings ATIS
-![](assets/images/embeddings/baseline_slot_embeddings_ATIS.png)
+![](assets/images/embeddings/baseline_slots_embeddings_ATIS.png)
 #### Intent embeddings ATIS
 ![](assets/images/embeddings/baseline_intent_embeddings_ATIS.png)
 #### Slot embeddings SNIPS
