@@ -35,10 +35,10 @@
     Here are presented two neural network based models on the joint task of slot filling and intent classification. The dataset tested are ATIS and SNIPS.
     
     The first model is based on a bidirectional LSTM. 
-    The second model consists of fine tuning a pretrained BERT model as backbone.
+    The second proposal consists of fine tuning a pretrained BERT model as backbone.
     Both models use random loss weighting and focal loss to get slightly better results.
     
-    Although both are an improvement with respect to a simple baseline model, neither is able to achieve results close to the current state of the art on ATIS and SNIPS for joint slot filling and intent classification. 
+    Although both are an improvement with respect to a simple baseline model, neither is able to surpass the current state of the art on ATIS and SNIPS for joint slot filling and intent classification. 
         
     
 \section{Task Formalisation}
@@ -105,7 +105,7 @@ It is known that joint training on both tasks at the same time yields better res
 
 The datasets used for training and testing are ATIS and SNIPS. Both are small datasets that are specifically designed for this purpose. Both share the same general structure and are made of examples as shown in Listing \ref{json-example}.
 
-Both dataset were initially divided in only training and test sets. The dev set was obtained from a part of the training set using the function \emph{train\_test\_split} from sklearn, This is to enforce statistical consistency of the different labels in training and development sets. 
+ATIS was initially divided in only training and test sets. The dev set was obtained from a part of the training using stratification in order to enforce statistical consistency of the different labels in training and development sets. 
 \begin{listing}[h!]
 	\begin{minted}[frame=single,
 		framesep=0mm,
@@ -133,24 +133,25 @@ The dataset is composed by a total of 5871 elements, that are partitioned in siz
 
 These labels are unevenly distributed. Around 73\% of the intents are 'flight' and 63\% of the slots are the tag 'O' whereas all other intents and slots occur in very few instances. 
 
-For example the intent 'cheapest' and the slot 'I-time' occur only once in the training set. This means that models are very unlikely to predict these labels at the test phase. 
+For example the intent 'cheapest' and the slot 'I-time' both occur only once in the training set. This means that models are very unlikely to predict these labels at the test phase. 
 
 There are also some labels that do not appear at all in either train or dev set but do occur in the test set, such as 'flight+airline', 'day\_name', 'flight\_no+airline', 'airfare+flight'. 
 Similarly for slot labels, 'B-booking\_class', 'B-compartment', 'B-flight', 'B-stoploc.airport\_code', 'I-flight\_number', 'I-state\_name' all appear in the test set but not in the training set or dev set.
 
-This creates an upper limit to the performances of any model with this partitioning, unless a data augmentation or re-partitioning of the train, dev and test sets is done. A new partitioning of the dataset that considers statistical consistency of the labels for train, dev and test sets was also tested, with a significant improvement across all models with respect to the default partitioning.
+This creates an upper limit to the performances of any model with this partitioning, unless a data augmentation or re-partitioning of the train, dev and test sets is performed. A new partitioning of the dataset that considers statistical consistency of the labels for train, dev and test sets was also tested, with a significant improvement across all models with respect to the default partitioning.
 
 \subsection{SNIPS}
-SNIPS is a slightly bigger and more balanced dataset. Its entries are related to tasks such as playing music or booking a hotel, typical for voice assistants. It has 13784 entries, divided in 11644, 1440, 700 for training, dev and test set respectively. 
+SNIPS is a slightly bigger and more balanced dataset. Its entries are related to tasks such as playing music or booking a hotel, typical for voice assistants. It has 14484 entries, divided in 13784, 700, 700 for training, dev and test set respectively. 
 
-The vocabulary used is much wider, being composed of 10638 unique words. At the same time, there are fewer labels, 73 for slots, including 'O', and 7 for intents. 
+The vocabulary used is much wider, being composed of 11420 unique words. At the same time, there are fewer labels, 73 for slots, including 'O', and 7 for intents. 
 
 Intents are almost equally distributed and while the slot label 'O' composes 49\% of the slots. Unlike ATIS, there are no slot or intent labels that appear in the test set but not in train or dev set. 
 
 
 Overall SNIPS should make for a better dataset for training, given the bigger size, larger vocabulary and fewer number of labels. It has to be noted that because ATIS is so small and unbalanced, a model may perform decently by just predicting 'flight' for every sentence. SNIPS does not present the same problem.
 
-Lastly, both datasets have a disproportionate amount of 'O' for slot filling. As such, all models tested have a tendency to overly predict 'O' for slot labels. 
+
+Lastly, both datasets have a disproportionate amount of 'O' for slot filling. As such, all models tested have a tendency to overly predict 'O' for slot labels.
 
 %\begin{itemize}
 %    \item \textit{Dataset origin and composition}
@@ -167,8 +168,9 @@ Their results are compared against a simple yet effective baseline model shown i
 	\centering
 	\includegraphics[width=0.8\linewidth]{../assets/images/baseline.png}
 	\caption{baseline}
-	\label{fig:Baseline}
+	\label{fig:baseline}
 \end{figure}
+The baseline is composed by a simple architecture, made of 3 layers:
 \begin{itemize}
 	\item embedding layer
 	\item LSTM with 1 layer
@@ -245,7 +247,7 @@ Intent classification takes as input the pooler\_output of the BERT backbone, wh
 Different learning rates for the classification layers and the backbone were used, specifically $e^{-4}$ and $e^{-5}$ respectively. This is to ensure that the model is able to learn the correct mapping for the classification layers and at the same time not lose the information stored in the pretrained backbone. 
 
 
-Both simple architectures are complemented by a few considerations in order to improve performances.
+Both BiLSTM and BERT architectures are complemented by a few considerations in order to improve performances.
 
 \begin{itemize}
 	\item early stopping
@@ -255,7 +257,7 @@ Both simple architectures are complemented by a few considerations in order to i
 
 \subsection{Early stopping}
 
-Early stopping is used to avoid overfitting. If both losses on slot filling and intent classification increase while training, the training is halted. Losses for early stopping are computed on the dev set. A hyperparameter for patience is set to 5 for both, which allows the model to increase the losses on the dev set up to 5 times before terminating.
+Early stopping is used to avoid overfitting. If both losses on slot filling and intent classification increase while training, the training is halted. Losses for early stopping are computed on the dev set. A hyperparameter for patience is set to 5 for both, which allows the model to increase the both losses for each task on the dev set up to 5 times before terminating the training.
 
 %In figure \ref{fig::losses} is shown the effectiveness of early stopping.
 
@@ -283,14 +285,14 @@ In multi task problems some tasks may converge earlier than others. Therefore we
 I use a very similar approach but with one key difference. I discovered that for both ATIS and SNIPS both models perform slightly better if among the two random weights, the larger is assigned to the task with higher loss. This is probably due to the fact that placing the larger weight to the task with higher loss increases the focus on that specific tasks. If one of the two tasks converges earlier, the loss will be lower and the smaller weight is assigned to the loss, as there is no need to learn more on that task. 
 
 \subsection{Focal loss}
-Finally, both models use a specific loss function. Instead of cross entropy, focal loss is used. It tackles the specific need for a loss that is better suited for classification on uneven datasets, with some labels that are easier or harder. It can be considered as a properly weighted cross-entropy loss, with highest loss to hard examples.
+Finally, both BiLSTM and BERT models use a specific loss function. Instead of cross entropy, focal loss is used. It tackles the specific need for a loss that is better suited for classification on uneven datasets, with some labels that are significantly easier or harder than others. It can be considered as a properly weighted cross-entropy loss, with highest loss to hard examples.
 
 \begin{equation}
  FL = -\alpha(1-P_t)^\gamma log(P_t)
 \end{equation}
 with $\alpha$ and $\gamma$ two hyperparameters that regulate the weights placed on the labels.  
 
-Optimizer used for both are Adam. Batch sizes are 128 for training set, 64 for validation and test set. 
+Lastly, optimizer used for all models are Adam. Batch sizes are 128 for training set, 64 for validation and test set. All models use padding when required.
 
 %\begin{itemize}
 %    \item \textit{your network/ algorithm (do not spend too much text in explaining already existing models, focus on your solution),}
@@ -303,13 +305,13 @@ Optimizer used for both are Adam. Batch sizes are 128 for training set, 64 for v
 
 The main metrics used for evaluation are F1 score for slot filling and accuracy for intent classification. This is in line with the state of the art metrics on both ATIS and SNIPS for joint slot filling intent classification.
 
-The final table here is shown in Tab \ref{tab:final_table}
+The final table with the results is shown in Tab \ref{tab:final_table}
 
-Both models are far from the state of the art, but are a slight improvement over the baseline.
+Both proposed models are unable to beat the state of the art, but whereas the first model is only a slight improvement over the baseline, the second proposal is significantly better and is not far from the current state of the art.
 
 Confusion matrixes are reported in figures \ref{fig:cm_intent} and \ref{fig:cm_slot}
 The colors are row normalized to prevent very frequent labels to dominate all the rest. 
-Blank lines are where the models did not make any prediction for that specific label.
+Blank lines present are where the models did not make any prediction at all for that specific label.
 
 \begin{table*}[h!]
 	\centering
@@ -321,14 +323,14 @@ Blank lines are where the models did not make any prediction for that specific l
 			\cmidrule{1-4}
 			Baseline &  \includegraphics[width=0.3\textwidth]{"../assets/images/confusion matrixes/CM_baseline_intent_ATIS_labeless"} & \includegraphics[width=0.3\textwidth]{"../assets/images/confusion matrixes/CM_baseline_intent_remix_ATIS_labeless"} &\includegraphics[width=0.3\textwidth]{"../assets/images/confusion matrixes/CM_baseline_intent_SNIPS_labeless"} \\
 			\cmidrule{1-4}
-			BiLSTM &  \includegraphics[width=0.3\textwidth]{"../assets/images/confusion matrixes/CM_BiLSTM_intent_ATIS_labeless.png"} & \includegraphics[width=0.3\textwidth]{"../assets/images/confusion matrixes/CM_BiLSTM_slot_remix_ATIS_labeless"}
+			BiLSTM &  \includegraphics[width=0.3\textwidth]{"../assets/images/confusion matrixes/CM_BiLSTM_intent_ATIS_labeless.png"} & \includegraphics[width=0.3\textwidth]{"../assets/images/confusion matrixes/CM_BiLSTM_intent_remix_ATIS_labeless"}
 			&\includegraphics[width=0.3\textwidth]{"../assets/images/confusion matrixes/CM_BiLSTM_intent_SNIPS_labeless"} \\
 			\cmidrule{1-4}
 			BERT &  \includegraphics[width=0.3\textwidth]{"../assets/images/confusion matrixes/CM_BERT_intent_ATIS_labeless"} &2 \includegraphics[width=0.3\textwidth]{"../assets/images/confusion matrixes/CM_BERT_intent_remix_ATIS_labeless"} &\includegraphics[width=0.3\textwidth]{"../assets/images/confusion matrixes/CM_BERT_intent_SNIPS_labeless"} \\
 			%	Baseline &  \raisebox{-\totalheight}{\includegraphics[width=0.3\textwidth, height=60mm]{../assets/images/CM_baseline_intent_ATIS}} & \raisebox{-\totalheight}{\includegraphics[width=0.3\textwidth, height=60mm]{../assets/images/CM_baseline_intent_remix_ATIS}} & \raisebox{-\totalheight}{\includegraphics[width=0.3\textwidth, height=60mm]{../assets/images/CM_baseline_intent_SNIPS}}\\
 		\end{tabular}
 	\end{adjustbox}
-\caption{Confusion matrixes for intent classification}
+\caption{Confusion matrixes for intent classification. Notice a marked vertical line corresponding to the label 'flight' on ATIS}
 \label{fig:cm_intent}
 \end{table*}
 
@@ -349,7 +351,7 @@ Blank lines are where the models did not make any prediction for that specific l
 		\end{tabular}
 	\end{adjustbox}
 
-\caption{Confusion matrixes for slot filling}
+\caption{Confusion matrixes for slot filling. Notice a slight vertical line on the right of each confusion matrix, that corresponds to the label 'O'}
 \label{fig:cm_slot}
 \end{table*}
 
@@ -357,16 +359,18 @@ It is possible to see that for slot filling in ATIS, balanced ATIS and SNIPS, th
 
 A similar consideration can be made for the label 'flight' in intent classification in ATIS. Intent classification on SNIPS does not show the same issue. 
 
-In theory, balanced ATIS is an easier dataset to train, as it is more evenly distributed than ATIS. Although there are significant improvements on F1 score and accuracy for slot filling and intent classification, these advantages do not directly translate to a better confusion matrix. Because most of the blank lines correspond to labels that are not present in the train or dev sets, it would be expected that with a better partitioning, the number of blank lines would diminish. However this does not happen. Probably the reason lays in the very limited number of examples with those labels. 
-It is also possible to notice that both in slot filling and intent classification, the models are less inclined to predict 'O' and 'flights' on balanced ATIS than default ATIS.
+In balanced ATIS is an easier dataset to train, as it is better distributed than ATIS. As proof, there are significant improvements on F1 score and accuracy for slot filling and intent classification, these advantages do directly translate to a better confusion matrix, with a very slightly more marked diagonal line.
+It is also possible to notice that both in slot filling and intent classification, the models are less inclined to predict 'O' and 'flights' on balanced ATIS than default ATIS, as the vertical line corresponding to either label is less marked. 
 
-Although SNIPS is arguably a better dataset than ATIS, being larger, evenly distributed, with fewer labels and a bigger vocabulary, all models perform better on ATIS rather than SNIPS for intent classification and significantly worse on slot filling. The better performances for intent classification can be easily explained by the limited (7) number of labels. The worse results on slot filling may be caused by the scope of the tasks. 
-On one hand, it is true that on ATIS there are more slot label, with fewer examples, but on the other hard all labels are under the wider scope of airport related requests. On SNIPS the requests cover a wider spectrum. This and the limited vocabulary on ATIS, probably lead to more examples for each token on ATIS than on SNIPS.
+Although SNIPS is arguably a better dataset than ATIS, being larger and evenly distributed, with fewer labels and a bigger vocabulary, all models perform better on ATIS rather than SNIPS for slot filling and slightly worse for intent classification. 
+
+The better results on slot filling may be caused by the scope of the tasks. 
+On one hand, it is true that on ATIS there are significantly more slot label, with fewer examples, but on the other hand all labels are under the umbrella of airport related requests. Instead, in SNIPS the requests cover a wider spectrum. This, combined the limited vocabulary on ATIS, probably leads to more examples of usage for each token in ATIS than in SNIPS.
 
 
-BERT performs much better than BiLSTM. Because this models it is based on a fine tuning of a pretrained model, this should solve the issue of having a small and biased dataset, fact that is corroborated by the data. 
+BERT performs much better than BiLSTM. Because this model is based on a fine tuning of a pretrained model, it solves the issue of having a small and biased dataset, fact that is further proven by the representation of the embeddings. 
 
-Looking at the t-distributed stochastic neighbour embeddings (TSNE) in Fig\ref{tab:embeddings} the features extracted by each model, before the classification layers, it is clear that BERT achieve a much higher class separation of the labels leading to better performances. 
+Looking at the t-distributed stochastic neighbour embeddings (TSNE) in Fig \ref{tab:embeddings} of the features extracted by each model, before the classification layers, it is clear that BERT achieve a much higher class separation of the labels, leading to better performances. 
 
 \begin{table*}[h!]
 	\centering
@@ -395,11 +399,11 @@ Looking at the t-distributed stochastic neighbour embeddings (TSNE) in Fig\ref{t
 %	\end{adjustbox}
 	}
 	
-	\caption{TSNE of the features for each model. Notice that the clusters are better separated on BERT than on the other two models. In particular on intent classification, the labels that correspond to \textcolor{Myviolet}{SearchCreativeWork} and \textcolor{Mypurple}{SearchScreeningEvent} are well separated }
+	\caption{TSNE of the features for each model. Notice that the clusters are better separated on BERT than on the other two models. In particular on intent classification on SNIPS, the labels that correspond to \textcolor{Myviolet}{SearchCreativeWork} and \textcolor{Mypurple}{SearchScreeningEvent} are well separated }
 	\label{tab:embeddings}
 \end{table*}
 
-In 'BERT for Joint Intent Classification and Slot Filling' \cite{https://doi.org/10.48550/arxiv.1902.10909} the authors use a similar architecture and are able to perform much better on slot filling., however they are able to achieve slightly more. 
+In 'BERT for Joint Intent Classification and Slot Filling' \cite{https://doi.org/10.48550/arxiv.1902.10909} the authors use a similar architecture and they are able to achieve slightly more. I was unable to replicate their results.
 
 
 \begin{table*}[h!]
@@ -433,7 +437,7 @@ In 'BERT for Joint Intent Classification and Slot Filling' \cite{https://doi.org
 %    \item \textit{Correct interpretation of errors and analysis}
 %\end{itemize}
 
-Looking at the training losses on BiLSTM in Fig \ref{fig:losses} a final remark.
+Looking at the training losses on BiLSTM in Fig \ref{fig:losses} a final consideration.
 \begin{figure}[h!]
 	\centering
 %	\begin{subfigure}[b]{0.3\textwidth}
@@ -456,12 +460,13 @@ Looking at the training losses on BiLSTM in Fig \ref{fig:losses} a final remark.
  \label{fig:losses}
 \end{figure}
 
-Even using early stopping, the loss on slot filling does increase on the dev set. This is because the training stops only if both dev losses start to increase. I was unable to change the hyperparameters regulating early stopping to remove this issue without compromising results. If this issue is solved, it is very likely possible to increase the slot filling performances further.
+Even using early stopping, the loss on slot filling does actually increase on the dev set. This is because the training stops only if both dev losses start to increase. I was unable to change the hyperparameters regulating early stopping to remove this issue without compromising results. If this problem is solved, it is very likely possible to increase the slot filling performances further.
 \section{Conclusion}
 
-I presented two models for the joint task of slot filling and intent classification. While neither are able to achieve results comparable to the state of the art, both are a marked improvement over a simple baseline model and BERT finetuning is not far from the state of the art
+I presented two models for the joint task of slot filling and intent classification. While neither is able to achieve results comparable to the state of the art, both are a marked improvement over a simple baseline model and BERT finetuning is not too far from the state of the art.
 
 As future work, it would be possible to explore more complex architectures for both models presented. 
+Especially on BERT, because the slot filling ignores some tokens generated by BertTokenizer. Some architecture to incorporate these tokens for the slot filling instead of discarding them may lead to better results for slot filling.
 
 \bibliographystyle{IEEEtran}
 

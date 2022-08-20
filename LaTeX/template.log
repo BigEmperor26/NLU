@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.3) (preloaded format=pdflatex 2022.5.21)  18 AUG 2022 19:45
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.3) (preloaded format=pdflatex 2022.5.21)  20 AUG 2022 12:09
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -652,36 +652,34 @@ Underfull \hbox (badness 7308) in paragraph at lines 138--140
 
 
 ]
-
-LaTeX Warning: Reference `fig:baseline' on page 2 undefined on input line 163.
-
 <../assets/images/baseline.png, id=14, 1592.95125pt x 1245.15187pt>
 File: ../assets/images/baseline.png Graphic file (type png)
 <use ../assets/images/baseline.png>
-Package pdftex.def Info: ../assets/images/baseline.png  used on input line 168.
+Package pdftex.def Info: ../assets/images/baseline.png  used on input line 169.
 
 (pdftex.def)             Requested size: 182.09831pt x 142.32497pt.
 <../assets/images/BiLSTM.png, id=16, 1072.005pt x 1289.56781pt>
 File: ../assets/images/BiLSTM.png Graphic file (type png)
 <use ../assets/images/BiLSTM.png>
-Package pdftex.def Info: ../assets/images/BiLSTM.png  used on input line 181.
+Package pdftex.def Info: ../assets/images/BiLSTM.png  used on input line 183.
 (pdftex.def)             Requested size: 182.09831pt x 219.04652pt.
+
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 <../assets/images/BERT.png, id=17, 1710.39pt x 1306.12968pt>
 File: ../assets/images/BERT.png Graphic file (type png)
 <use ../assets/images/BERT.png>
-Package pdftex.def Info: ../assets/images/BERT.png  used on input line 202.
+Package pdftex.def Info: ../assets/images/BERT.png  used on input line 204.
 (pdftex.def)             Requested size: 182.09831pt x 139.05096pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 210--211
+Underfull \hbox (badness 10000) in paragraph at lines 212--213
 
  []
 
 [2 <../assets/images/baseline.png> <../assets/images/BiLSTM.png> <../assets/ima
 ges/BERT.png>]
-Overfull \hbox (14.22949pt too wide) in paragraph at lines 220--229
+Overfull \hbox (14.22949pt too wide) in paragraph at lines 222--231
  [] 
  []
 
@@ -691,7 +689,7 @@ File: ../assets/images/confusion matrixes/CM_baseline_intent_ATIS_labeless.png
 Graphic file (type png)
 <use ../assets/images/confusion matrixes/CM_baseline_intent_ATIS_labeless.png>
 Package pdftex.def Info: ../assets/images/confusion matrixes/CM_baseline_intent
-_ATIS_labeless.png  used on input line 322.
+_ATIS_labeless.png  used on input line 324.
 (pdftex.def)             Requested size: 145.11052pt x 145.11086pt.
 <../assets/images/confusion matrixes/CM_baseline_intent_remix_ATIS_labeless.png
 , id=25, 722.7pt x 722.7pt>
@@ -700,7 +698,7 @@ s.png Graphic file (type png)
 <use ../assets/images/confusion matrixes/CM_baseline_intent_remix_ATIS_labeless
 .png>
 Package pdftex.def Info: ../assets/images/confusion matrixes/CM_baseline_intent
-_remix_ATIS_labeless.png  used on input line 322.
+_remix_ATIS_labeless.png  used on input line 324.
 (pdftex.def)             Requested size: 145.11052pt x 145.11086pt.
 <../assets/images/confusion matrixes/CM_baseline_intent_SNIPS_labeless.png, id=
 26, 722.7pt x 722.7pt>
@@ -709,7 +707,7 @@ File: ../assets/images/confusion matrixes/CM_baseline_intent_SNIPS_labeless.png
 <use ../assets/images/confusion matrixes/CM_baseline_intent_SNIPS_labeless.png>
 
 Package pdftex.def Info: ../assets/images/confusion matrixes/CM_baseline_intent
-_SNIPS_labeless.png  used on input line 322.
+_SNIPS_labeless.png  used on input line 324.
 (pdftex.def)             Requested size: 145.11052pt x 145.11086pt.
 <../assets/images/confusion matrixes/CM_BiLSTM_intent_ATIS_labeless.png, id=27,
  722.7pt x 722.7pt>
@@ -717,24 +715,24 @@ File: ../assets/images/confusion matrixes/CM_BiLSTM_intent_ATIS_labeless.png Gr
 aphic file (type png)
 <use ../assets/images/confusion matrixes/CM_BiLSTM_intent_ATIS_labeless.png>
 Package pdftex.def Info: ../assets/images/confusion matrixes/CM_BiLSTM_intent_A
-TIS_labeless.png  used on input line 324.
+TIS_labeless.png  used on input line 326.
 (pdftex.def)             Requested size: 145.11052pt x 145.11086pt.
-<../assets/images/confusion matrixes/CM_BiLSTM_slot_remix_ATIS_labeless.png, id
-=28, 2890.8pt x 2890.8pt>
-File: ../assets/images/confusion matrixes/CM_BiLSTM_slot_remix_ATIS_labeless.pn
-g Graphic file (type png)
-<use ../assets/images/confusion matrixes/CM_BiLSTM_slot_remix_ATIS_labeless.png
->
-Package pdftex.def Info: ../assets/images/confusion matrixes/CM_BiLSTM_slot_rem
-ix_ATIS_labeless.png  used on input line 324.
-(pdftex.def)             Requested size: 145.11052pt x 145.07779pt.
+<../assets/images/confusion matrixes/CM_BiLSTM_intent_remix_ATIS_labeless.png, 
+id=28, 722.7pt x 722.7pt>
+File: ../assets/images/confusion matrixes/CM_BiLSTM_intent_remix_ATIS_labeless.
+png Graphic file (type png)
+<use ../assets/images/confusion matrixes/CM_BiLSTM_intent_remix_ATIS_labeless.p
+ng>
+Package pdftex.def Info: ../assets/images/confusion matrixes/CM_BiLSTM_intent_r
+emix_ATIS_labeless.png  used on input line 326.
+(pdftex.def)             Requested size: 145.11052pt x 145.11086pt.
 <../assets/images/confusion matrixes/CM_BiLSTM_intent_SNIPS_labeless.png, id=29
 , 722.7pt x 722.7pt>
 File: ../assets/images/confusion matrixes/CM_BiLSTM_intent_SNIPS_labeless.png G
 raphic file (type png)
 <use ../assets/images/confusion matrixes/CM_BiLSTM_intent_SNIPS_labeless.png>
 Package pdftex.def Info: ../assets/images/confusion matrixes/CM_BiLSTM_intent_S
-NIPS_labeless.png  used on input line 325.
+NIPS_labeless.png  used on input line 327.
 (pdftex.def)             Requested size: 145.11052pt x 145.11086pt.
 <../assets/images/confusion matrixes/CM_BERT_intent_ATIS_labeless.png, id=30, 7
 22.7pt x 722.7pt>
@@ -742,7 +740,7 @@ File: ../assets/images/confusion matrixes/CM_BERT_intent_ATIS_labeless.png Grap
 hic file (type png)
 <use ../assets/images/confusion matrixes/CM_BERT_intent_ATIS_labeless.png>
 Package pdftex.def Info: ../assets/images/confusion matrixes/CM_BERT_intent_ATI
-S_labeless.png  used on input line 327.
+S_labeless.png  used on input line 329.
 (pdftex.def)             Requested size: 145.11052pt x 145.11086pt.
 <../assets/images/confusion matrixes/CM_BERT_intent_remix_ATIS_labeless.png, id
 =31, 722.7pt x 722.7pt>
@@ -751,7 +749,7 @@ g Graphic file (type png)
 <use ../assets/images/confusion matrixes/CM_BERT_intent_remix_ATIS_labeless.png
 >
 Package pdftex.def Info: ../assets/images/confusion matrixes/CM_BERT_intent_rem
-ix_ATIS_labeless.png  used on input line 327.
+ix_ATIS_labeless.png  used on input line 329.
 (pdftex.def)             Requested size: 145.11052pt x 145.11086pt.
 <../assets/images/confusion matrixes/CM_BERT_intent_SNIPS_labeless.png, id=32, 
 722.7pt x 722.7pt>
@@ -759,7 +757,7 @@ File: ../assets/images/confusion matrixes/CM_BERT_intent_SNIPS_labeless.png Gra
 phic file (type png)
 <use ../assets/images/confusion matrixes/CM_BERT_intent_SNIPS_labeless.png>
 Package pdftex.def Info: ../assets/images/confusion matrixes/CM_BERT_intent_SNI
-PS_labeless.png  used on input line 327.
+PS_labeless.png  used on input line 329.
 (pdftex.def)             Requested size: 145.11052pt x 145.11086pt.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
@@ -770,7 +768,7 @@ File: ../assets/images/confusion matrixes/CM_baseline_slot_ATIS_labeless.png Gr
 aphic file (type png)
 <use ../assets/images/confusion matrixes/CM_baseline_slot_ATIS_labeless.png>
 Package pdftex.def Info: ../assets/images/confusion matrixes/CM_baseline_slot_A
-TIS_labeless.png  used on input line 343.
+TIS_labeless.png  used on input line 345.
 (pdftex.def)             Requested size: 145.11052pt x 145.07779pt.
 <../assets/images/confusion matrixes/CM_baseline_slot_remix_ATIS_labeless.png, 
 id=34, 2890.8pt x 2890.8pt>
@@ -779,7 +777,7 @@ png Graphic file (type png)
 <use ../assets/images/confusion matrixes/CM_baseline_slot_remix_ATIS_labeless.p
 ng>
 Package pdftex.def Info: ../assets/images/confusion matrixes/CM_baseline_slot_r
-emix_ATIS_labeless.png  used on input line 343.
+emix_ATIS_labeless.png  used on input line 345.
 (pdftex.def)             Requested size: 145.11052pt x 145.07779pt.
 <../assets/images/confusion matrixes/CM_baseline_slot_SNIPS_labeless.png, id=35
 , 2890.8pt x 2890.8pt>
@@ -787,7 +785,7 @@ File: ../assets/images/confusion matrixes/CM_baseline_slot_SNIPS_labeless.png G
 raphic file (type png)
 <use ../assets/images/confusion matrixes/CM_baseline_slot_SNIPS_labeless.png>
 Package pdftex.def Info: ../assets/images/confusion matrixes/CM_baseline_slot_S
-NIPS_labeless.png  used on input line 343.
+NIPS_labeless.png  used on input line 345.
 (pdftex.def)             Requested size: 145.11052pt x 145.07779pt.
 <../assets/images/confusion matrixes/CM_BiLSTM_slot_ATIS_labeless.png, id=36, 2
 890.8pt x 2890.8pt>
@@ -795,146 +793,148 @@ File: ../assets/images/confusion matrixes/CM_BiLSTM_slot_ATIS_labeless.png Grap
 hic file (type png)
 <use ../assets/images/confusion matrixes/CM_BiLSTM_slot_ATIS_labeless.png>
 Package pdftex.def Info: ../assets/images/confusion matrixes/CM_BiLSTM_slot_ATI
-S_labeless.png  used on input line 345.
+S_labeless.png  used on input line 347.
 (pdftex.def)             Requested size: 145.11052pt x 145.07779pt.
+<../assets/images/confusion matrixes/CM_BiLSTM_slot_remix_ATIS_labeless.png, id
+=37, 2890.8pt x 2890.8pt>
 File: ../assets/images/confusion matrixes/CM_BiLSTM_slot_remix_ATIS_labeless.pn
 g Graphic file (type png)
 <use ../assets/images/confusion matrixes/CM_BiLSTM_slot_remix_ATIS_labeless.png
 >
 Package pdftex.def Info: ../assets/images/confusion matrixes/CM_BiLSTM_slot_rem
-ix_ATIS_labeless.png  used on input line 345.
+ix_ATIS_labeless.png  used on input line 347.
 (pdftex.def)             Requested size: 145.11052pt x 145.07779pt.
-<../assets/images/confusion matrixes/CM_BiLSTM_slot_SNIPS_labeless.png, id=37, 
+<../assets/images/confusion matrixes/CM_BiLSTM_slot_SNIPS_labeless.png, id=38, 
 2890.8pt x 2890.8pt>
 File: ../assets/images/confusion matrixes/CM_BiLSTM_slot_SNIPS_labeless.png Gra
 phic file (type png)
 <use ../assets/images/confusion matrixes/CM_BiLSTM_slot_SNIPS_labeless.png>
 Package pdftex.def Info: ../assets/images/confusion matrixes/CM_BiLSTM_slot_SNI
-PS_labeless.png  used on input line 345.
+PS_labeless.png  used on input line 347.
 (pdftex.def)             Requested size: 145.11052pt x 145.07779pt.
-<../assets/images/confusion matrixes/CM_BERT_slot_ATIS_labeless.png, id=38, 289
+<../assets/images/confusion matrixes/CM_BERT_slot_ATIS_labeless.png, id=39, 289
 0.8pt x 2890.8pt>
 File: ../assets/images/confusion matrixes/CM_BERT_slot_ATIS_labeless.png Graphi
 c file (type png)
 <use ../assets/images/confusion matrixes/CM_BERT_slot_ATIS_labeless.png>
 Package pdftex.def Info: ../assets/images/confusion matrixes/CM_BERT_slot_ATIS_
-labeless.png  used on input line 347.
+labeless.png  used on input line 349.
 (pdftex.def)             Requested size: 145.11052pt x 145.07779pt.
-<../assets/images/confusion matrixes/CM_BERT_slot_remix_ATIS_labeless.png, id=3
-9, 2890.8pt x 2890.8pt>
+<../assets/images/confusion matrixes/CM_BERT_slot_remix_ATIS_labeless.png, id=4
+0, 2890.8pt x 2890.8pt>
 File: ../assets/images/confusion matrixes/CM_BERT_slot_remix_ATIS_labeless.png 
 Graphic file (type png)
 <use ../assets/images/confusion matrixes/CM_BERT_slot_remix_ATIS_labeless.png>
 Package pdftex.def Info: ../assets/images/confusion matrixes/CM_BERT_slot_remix
-_ATIS_labeless.png  used on input line 347.
+_ATIS_labeless.png  used on input line 349.
 (pdftex.def)             Requested size: 145.11052pt x 145.07779pt.
-<../assets/images/confusion matrixes/CM_BERT_slot_SNIPS_labeless.png, id=40, 28
+<../assets/images/confusion matrixes/CM_BERT_slot_SNIPS_labeless.png, id=41, 28
 90.8pt x 2890.8pt>
 File: ../assets/images/confusion matrixes/CM_BERT_slot_SNIPS_labeless.png Graph
 ic file (type png)
 <use ../assets/images/confusion matrixes/CM_BERT_slot_SNIPS_labeless.png>
 Package pdftex.def Info: ../assets/images/confusion matrixes/CM_BERT_slot_SNIPS
-_labeless.png  used on input line 347.
+_labeless.png  used on input line 349.
 (pdftex.def)             Requested size: 145.11052pt x 145.07779pt.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 [3]
-<../assets/images/embeddings/baseline_slots_embeddings_ATIS_single.png, id=45, 
+<../assets/images/embeddings/baseline_slots_embeddings_ATIS_single.png, id=46, 
 361.35pt x 361.35pt>
 File: ../assets/images/embeddings/baseline_slots_embeddings_ATIS_single.png Gra
 phic file (type png)
 <use ../assets/images/embeddings/baseline_slots_embeddings_ATIS_single.png>
 Package pdftex.def Info: ../assets/images/embeddings/baseline_slots_embeddings_
-ATIS_single.png  used on input line 396.
+ATIS_single.png  used on input line 400.
 (pdftex.def)             Requested size: 96.73788pt x 96.73874pt.
-<../assets/images/embeddings/baseline_intent_embeddings_ATIS_single.png, id=46,
+<../assets/images/embeddings/baseline_intent_embeddings_ATIS_single.png, id=47,
  361.35pt x 361.35pt>
 File: ../assets/images/embeddings/baseline_intent_embeddings_ATIS_single.png Gr
 aphic file (type png)
 <use ../assets/images/embeddings/baseline_intent_embeddings_ATIS_single.png>
 Package pdftex.def Info: ../assets/images/embeddings/baseline_intent_embeddings
-_ATIS_single.png  used on input line 396.
+_ATIS_single.png  used on input line 400.
 (pdftex.def)             Requested size: 96.73788pt x 96.73874pt.
-<../assets/images/embeddings/baseline_slot_embeddings_SNIPS_single.png, id=47, 
+<../assets/images/embeddings/baseline_slot_embeddings_SNIPS_single.png, id=48, 
 361.35pt x 361.35pt>
 File: ../assets/images/embeddings/baseline_slot_embeddings_SNIPS_single.png Gra
 phic file (type png)
 <use ../assets/images/embeddings/baseline_slot_embeddings_SNIPS_single.png>
 Package pdftex.def Info: ../assets/images/embeddings/baseline_slot_embeddings_S
-NIPS_single.png  used on input line 396.
+NIPS_single.png  used on input line 400.
 (pdftex.def)             Requested size: 96.73788pt x 96.73874pt.
-<../assets/images/embeddings/baseline_intent_embeddings_SNIPS_single.png, id=48
+<../assets/images/embeddings/baseline_intent_embeddings_SNIPS_single.png, id=49
 , 361.35pt x 361.35pt>
 File: ../assets/images/embeddings/baseline_intent_embeddings_SNIPS_single.png G
 raphic file (type png)
 <use ../assets/images/embeddings/baseline_intent_embeddings_SNIPS_single.png>
 Package pdftex.def Info: ../assets/images/embeddings/baseline_intent_embeddings
-_SNIPS_single.png  used on input line 396.
+_SNIPS_single.png  used on input line 400.
 (pdftex.def)             Requested size: 96.73788pt x 96.73874pt.
-<../assets/images/embeddings/BiLSTM_slot_embeddings_ATIS_single.png, id=49, 361
+<../assets/images/embeddings/BiLSTM_slot_embeddings_ATIS_single.png, id=50, 361
 .35pt x 361.35pt>
 File: ../assets/images/embeddings/BiLSTM_slot_embeddings_ATIS_single.png Graphi
 c file (type png)
 <use ../assets/images/embeddings/BiLSTM_slot_embeddings_ATIS_single.png>
 Package pdftex.def Info: ../assets/images/embeddings/BiLSTM_slot_embeddings_ATI
-S_single.png  used on input line 396.
+S_single.png  used on input line 400.
 (pdftex.def)             Requested size: 96.73788pt x 96.73874pt.
-<../assets/images/embeddings/BiLSTM_intent_embeddings_ATIS_single.png, id=50, 3
+<../assets/images/embeddings/BiLSTM_intent_embeddings_ATIS_single.png, id=51, 3
 61.35pt x 361.35pt>
 File: ../assets/images/embeddings/BiLSTM_intent_embeddings_ATIS_single.png Grap
 hic file (type png)
 <use ../assets/images/embeddings/BiLSTM_intent_embeddings_ATIS_single.png>
 Package pdftex.def Info: ../assets/images/embeddings/BiLSTM_intent_embeddings_A
-TIS_single.png  used on input line 396.
+TIS_single.png  used on input line 400.
 (pdftex.def)             Requested size: 96.73788pt x 96.73874pt.
-<../assets/images/embeddings/BiLSTM_slot_embeddings_SNIPS_single.png, id=51, 36
+<../assets/images/embeddings/BiLSTM_slot_embeddings_SNIPS_single.png, id=52, 36
 1.35pt x 361.35pt>
 File: ../assets/images/embeddings/BiLSTM_slot_embeddings_SNIPS_single.png Graph
 ic file (type png)
 <use ../assets/images/embeddings/BiLSTM_slot_embeddings_SNIPS_single.png>
 Package pdftex.def Info: ../assets/images/embeddings/BiLSTM_slot_embeddings_SNI
-PS_single.png  used on input line 396.
+PS_single.png  used on input line 400.
 (pdftex.def)             Requested size: 96.73788pt x 96.73874pt.
-<../assets/images/embeddings/BiLSTM_intent_embeddings_SNIPS_single.png, id=52, 
+<../assets/images/embeddings/BiLSTM_intent_embeddings_SNIPS_single.png, id=53, 
 361.35pt x 361.35pt>
 File: ../assets/images/embeddings/BiLSTM_intent_embeddings_SNIPS_single.png Gra
 phic file (type png)
 <use ../assets/images/embeddings/BiLSTM_intent_embeddings_SNIPS_single.png>
 Package pdftex.def Info: ../assets/images/embeddings/BiLSTM_intent_embeddings_S
-NIPS_single.png  used on input line 396.
+NIPS_single.png  used on input line 400.
 (pdftex.def)             Requested size: 96.73788pt x 96.73874pt.
-<../assets/images/embeddings/BERT_slot_embeddings_ATIS_single.png, id=53, 361.3
+<../assets/images/embeddings/BERT_slot_embeddings_ATIS_single.png, id=54, 361.3
 5pt x 361.35pt>
 File: ../assets/images/embeddings/BERT_slot_embeddings_ATIS_single.png Graphic 
 file (type png)
 <use ../assets/images/embeddings/BERT_slot_embeddings_ATIS_single.png>
 Package pdftex.def Info: ../assets/images/embeddings/BERT_slot_embeddings_ATIS_
-single.png  used on input line 396.
+single.png  used on input line 400.
 (pdftex.def)             Requested size: 96.73788pt x 96.73874pt.
-<../assets/images/embeddings/BERT_intent_embeddings_ATIS_single.png, id=54, 361
+<../assets/images/embeddings/BERT_intent_embeddings_ATIS_single.png, id=55, 361
 .35pt x 361.35pt>
 File: ../assets/images/embeddings/BERT_intent_embeddings_ATIS_single.png Graphi
 c file (type png)
 <use ../assets/images/embeddings/BERT_intent_embeddings_ATIS_single.png>
 Package pdftex.def Info: ../assets/images/embeddings/BERT_intent_embeddings_ATI
-S_single.png  used on input line 396.
+S_single.png  used on input line 400.
 (pdftex.def)             Requested size: 96.73788pt x 96.73874pt.
-<../assets/images/embeddings/BERT_slot_embeddings_SNIPS_single.png, id=55, 361.
+<../assets/images/embeddings/BERT_slot_embeddings_SNIPS_single.png, id=56, 361.
 35pt x 361.35pt>
 File: ../assets/images/embeddings/BERT_slot_embeddings_SNIPS_single.png Graphic
  file (type png)
 <use ../assets/images/embeddings/BERT_slot_embeddings_SNIPS_single.png>
 Package pdftex.def Info: ../assets/images/embeddings/BERT_slot_embeddings_SNIPS
-_single.png  used on input line 396.
+_single.png  used on input line 400.
 (pdftex.def)             Requested size: 96.73788pt x 96.73874pt.
-<../assets/images/embeddings/BERT_intent_embeddings_SNIPS_single.png, id=56, 36
+<../assets/images/embeddings/BERT_intent_embeddings_SNIPS_single.png, id=57, 36
 1.35pt x 361.35pt>
 File: ../assets/images/embeddings/BERT_intent_embeddings_SNIPS_single.png Graph
 ic file (type png)
 <use ../assets/images/embeddings/BERT_intent_embeddings_SNIPS_single.png>
 Package pdftex.def Info: ../assets/images/embeddings/BERT_intent_embeddings_SNI
-PS_single.png  used on input line 396.
+PS_single.png  used on input line 400.
 (pdftex.def)             Requested size: 96.73788pt x 96.73874pt.
 
 
@@ -943,27 +943,27 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<../assets/images/losses/BiLSTM Average Slot Loss ATIS.png, id=57, 722.7pt x 72
+<../assets/images/losses/BiLSTM Average Slot Loss ATIS.png, id=58, 722.7pt x 72
 2.7pt>
 File: ../assets/images/losses/BiLSTM Average Slot Loss ATIS.png Graphic file (t
 ype png)
 <use ../assets/images/losses/BiLSTM Average Slot Loss ATIS.png>
 Package pdftex.def Info: ../assets/images/losses/BiLSTM Average Slot Loss ATIS.
-png  used on input line 446.
+png  used on input line 450.
 (pdftex.def)             Requested size: 106.4139pt x 106.40434pt.
-<../assets/images/losses/BiLSTM Average Intent Loss ATIS.png, id=58, 722.7pt x 
+<../assets/images/losses/BiLSTM Average Intent Loss ATIS.png, id=59, 722.7pt x 
 722.7pt>
 File: ../assets/images/losses/BiLSTM Average Intent Loss ATIS.png Graphic file 
 (type png)
 <use ../assets/images/losses/BiLSTM Average Intent Loss ATIS.png>
 Package pdftex.def Info: ../assets/images/losses/BiLSTM Average Intent Loss ATI
-S.png  used on input line 452.
+S.png  used on input line 456.
 (pdftex.def)             Requested size: 106.4139pt x 106.40434pt.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 
-Underfull \vbox (badness 1478) has occurred while \output is active []
+Underfull \vbox (badness 3514) has occurred while \output is active []
 
 
 
@@ -976,23 +976,24 @@ Underfull \vbox (badness 1297) has occurred while \output is active []
 <../assets/images/confusion matrixes/CM_baseline_intent_remix_ATIS_labeless.png
 > <../assets/images/confusion matrixes/CM_baseline_intent_SNIPS_labeless.png> <
 ../assets/images/confusion matrixes/CM_BiLSTM_intent_ATIS_labeless.png> <../ass
-ets/images/confusion matrixes/CM_BiLSTM_slot_remix_ATIS_labeless.png> <../asset
-s/images/confusion matrixes/CM_BiLSTM_intent_SNIPS_labeless.png> <../assets/ima
-ges/confusion matrixes/CM_BERT_intent_ATIS_labeless.png> <../assets/images/conf
-usion matrixes/CM_BERT_intent_remix_ATIS_labeless.png> <../assets/images/confus
-ion matrixes/CM_BERT_intent_SNIPS_labeless.png> <../assets/images/losses/BiLSTM
- Average Slot Loss ATIS.png> <../assets/images/losses/BiLSTM Average Intent Los
-s ATIS.png>] (template.bbl
+ets/images/confusion matrixes/CM_BiLSTM_intent_remix_ATIS_labeless.png> <../ass
+ets/images/confusion matrixes/CM_BiLSTM_intent_SNIPS_labeless.png> <../assets/i
+mages/confusion matrixes/CM_BERT_intent_ATIS_labeless.png> <../assets/images/co
+nfusion matrixes/CM_BERT_intent_remix_ATIS_labeless.png> <../assets/images/conf
+usion matrixes/CM_BERT_intent_SNIPS_labeless.png> <../assets/images/losses/BiLS
+TM Average Slot Loss ATIS.png> <../assets/images/losses/BiLSTM Average Intent L
+oss ATIS.png>] (template.bbl
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [5 <../assets/images/confusion matrixes/CM_baseline_slot_ATIS_labeless.png> <.
 ./assets/images/confusion matrixes/CM_baseline_slot_remix_ATIS_labeless.png> <.
 ./assets/images/confusion matrixes/CM_baseline_slot_SNIPS_labeless.png> <../ass
 ets/images/confusion matrixes/CM_BiLSTM_slot_ATIS_labeless.png> <../assets/imag
-es/confusion matrixes/CM_BiLSTM_slot_SNIPS_labeless.png> <../assets/images/conf
-usion matrixes/CM_BERT_slot_ATIS_labeless.png> <../assets/images/confusion matr
-ixes/CM_BERT_slot_remix_ATIS_labeless.png> <../assets/images/confusion matrixes
-/CM_BERT_slot_SNIPS_labeless.png>]) [6
+es/confusion matrixes/CM_BiLSTM_slot_remix_ATIS_labeless.png> <../assets/images
+/confusion matrixes/CM_BiLSTM_slot_SNIPS_labeless.png> <../assets/images/confus
+ion matrixes/CM_BERT_slot_ATIS_labeless.png> <../assets/images/confusion matrix
+es/CM_BERT_slot_remix_ATIS_labeless.png> <../assets/images/confusion matrixes/C
+M_BERT_slot_SNIPS_labeless.png>]) [6
 
  <../assets/images/embeddings/baseline_slots_embeddings_ATIS_single.png> <../as
 sets/images/embeddings/baseline_intent_embeddings_ATIS_single.png> <../assets/i
@@ -1005,20 +1006,17 @@ gs_SNIPS_single.png> <../assets/images/embeddings/BERT_slot_embeddings_ATIS_sin
 gle.png> <../assets/images/embeddings/BERT_intent_embeddings_ATIS_single.png> <
 ../assets/images/embeddings/BERT_slot_embeddings_SNIPS_single.png> <../assets/i
 mages/embeddings/BERT_intent_embeddings_SNIPS_single.png>] (template.aux)
-
-LaTeX Warning: There were undefined references.
-
 runsystem(del template.pyg)...executed.
 
  ) 
 Here is how much of TeX's memory you used:
- 12585 strings out of 478582
- 263783 string characters out of 2844344
- 585493 words of memory out of 3000000
- 30512 multiletter control sequences out of 15000+600000
+ 12596 strings out of 478582
+ 264702 string characters out of 2844344
+ 586493 words of memory out of 3000000
+ 30522 multiletter control sequences out of 15000+600000
  493374 words of font info for 76 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 74i,13n,79p,630b,665s stack positions out of 10000i,1000n,20000p,200000b,80000s
+ 74i,13n,79p,557b,665s stack positions out of 10000i,1000n,20000p,200000b,80000s
 {C:/Users/micky/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/base/8r.enc}<C:
 /Users/micky/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi6
 .pfb><C:/Users/micky/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/
@@ -1031,9 +1029,9 @@ ms/MiKTeX/fonts/type1/urw/courier/ucrr8a.pfb><C:/Users/micky/AppData/Local/Prog
 rams/MiKTeX/fonts/type1/urw/times/utmb8a.pfb><C:/Users/micky/AppData/Local/Prog
 rams/MiKTeX/fonts/type1/urw/times/utmr8a.pfb><C:/Users/micky/AppData/Local/Prog
 rams/MiKTeX/fonts/type1/urw/times/utmri8a.pfb>
-Output written on template.pdf (6 pages, 1400550 bytes).
+Output written on template.pdf (6 pages, 1408354 bytes).
 PDF statistics:
- 141 PDF objects out of 1000 (max. 8388607)
+ 143 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 171 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 176 words of extra memory for PDF output out of 10000 (max. 10000000)
 
