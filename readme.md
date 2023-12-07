@@ -16,7 +16,7 @@ In the literature there are proofs that models trained jointly on both tasks per
 The sequence labelling task is defined as:
 - Given a sequence of tokens $w = {w_1, w_2, ..., w_n}$,
 - defining a sequence of labels as $l = {l_1, l_2, ..., l_n}$
-- compute the sequence $\hat{l}$ such as $\hat{l} = \underset{l}{\operatorname{argmax}} P(l|w)$ 
+- compute the sequence $\hat{l}$ such as $\hat{l} = \underset{l}{\text{argmax}} P(l|w)$ 
 
 \
 An example from ATIS dataset is the following: 
@@ -32,7 +32,7 @@ An example from ATIS dataset is the following:
 The intent classification problem is defined as follows:
 - Given a sequence of tokens $w = {w_1, w_2, ..., w_n}$,
 - And a set of labels $L$ where $l \in L$
-- estimate the label $\hat{l}$ such as $\hat{l} = \underset{l}{\operatorname{argmax}} P(l|w)$ 
+- estimate the label $\hat{l}$ such as $\hat{l} = \underset{l}{\text{argmax}} P(l|w)$ 
 
 An example from ATIS dataset is the following:
 
